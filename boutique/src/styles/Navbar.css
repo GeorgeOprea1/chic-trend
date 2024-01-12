@@ -12,13 +12,14 @@ nav {
   background-color: #fff;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   padding: 1rem;
+  width: 100%;
 }
 
 .navbar-container {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  height: 5vh;
+  height: 4vh;
 }
 
 .logo {
