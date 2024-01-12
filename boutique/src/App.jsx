@@ -1,33 +1,32 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { useState, useEffect } from "react";
 import Navbar from "./Navbar";
 import Hero from "./Hero";
+import FeaturedItems from "./FeatureItems";
+import Footer from "./Footer";
 import "./App.css";
 
-const Home = () => {
-  return <h2>Home Page</h2>;
-};
-
-const Shop = () => {
-  return <h2>Shop Page</h2>;
-};
-
-const Cart = () => {
-  return <h2>Cart Page</h2>;
-};
-
 const App = () => {
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    fetch("https://fakestoreapi.com/products/category/men's clothing")
+      .then((res) => res.json())
+      .then((json) => {
+        setItems(json);
+        console.log(json);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
+
   return (
-    <Router>
-      <div className="app-container">
-        <Navbar />
-        <Hero />
-        <Routes>
-          <Route path="/" exact component={Home} />
-          <Route path="/shop" component={Shop} />
-          <Route path="/cart" component={Cart} />
-        </Routes>
-      </div>
-    </Router>
+    <div className="app-container">
+      <Navbar />
+      <Hero />
+      <FeaturedItems items={items} />
+      <Footer />
+    </div>
   );
 };
 

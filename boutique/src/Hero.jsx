@@ -12,7 +12,7 @@ const Hero = () => {
         selection of products, unbeatable prices, and exceptional customer
         service. Shop now and transform your shopping journey with us.
       </p>
-      <Link to="/store" className="custom-link">
+      <Link to="/shop" className="custom-link">
         Shop now
       </Link>
     </section>

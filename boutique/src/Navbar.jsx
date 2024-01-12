@@ -14,9 +14,9 @@ const Navbar = () => {
         </div>
         <div className="nav-links">
           <Link to="/">Home</Link>
-          <Link to="">Shop</Link>
-          <Link to="">
-            <IoCartOutline />
+          <Link to="/shop">Shop</Link>
+          <Link to="/cart">
+            <IoCartOutline className="cart-icon" />
           </Link>
         </div>
       </div>
