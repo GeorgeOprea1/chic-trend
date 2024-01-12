@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
 import Shop from "./pages/Shop";
 import Cart from "./pages/Cart";
+import IndividualItem from "./pages/IndividualItemPage";
 import { useState, useEffect } from "react";
 
 const Router = () => {
@@ -31,6 +32,10 @@ const Router = () => {
     {
       path: "cart",
       element: <Cart />,
+    },
+    {
+      path: "individual",
+      element: <IndividualItem />,
     },
   ]);
 

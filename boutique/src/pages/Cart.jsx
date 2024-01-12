@@ -1,3 +1,4 @@
+import Footer from "../Footer";
 import Navbar from "../Navbar";
 
 const Cart = () => {
@@ -5,6 +6,7 @@ const Cart = () => {
     <>
       <Navbar />
       <div>This wil be the cart component</div>
+      <Footer />
     </>
   );
 };
