@@ -1,12 +1,12 @@
 import Navbar from "./Navbar";
 import Shop from "./pages/Shop";
-
 import Footer from "./Footer";
 import "./App.css";
 import { useState, useEffect } from "react";
 import Home from "./pages/Home";
 import { Routes, Route } from "react-router-dom";
 import Cart from "./pages/Cart";
+import IndividualItemPage from "./pages/IndividualItemPage";
 
 const App = () => {
   const [items, setItems] = useState([]);
@@ -30,6 +30,10 @@ const App = () => {
         <Route path="/" element={<Home items={items} />} />
         <Route path="shop" element={<Shop items={items} />} />
         <Route path="cart" element={<Cart />} />
+        <Route
+          path="individual/:id"
+          element={<IndividualItemPage items={items} />}
+        />
       </Routes>
       <Footer />
     </div>

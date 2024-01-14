@@ -1,9 +1,9 @@
 import "./styles/ProductItem.css";
 import { Link } from "react-router-dom";
 
-const ProductItem = ({ title, image, price, rating }) => {
+const ProductItem = ({ id, title, image, price, rating }) => {
   return (
-    <Link to="" className="product-item">
+    <Link to={`/individual/${id}`} className="product-item">
       <img src={image} alt={title} className="product-image" />
       <div className="product-details">
         <h3 className="title">{title}</h3>
