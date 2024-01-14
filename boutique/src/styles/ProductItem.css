@@ -14,6 +14,13 @@
   transition: transform 0.2s ease-in-out;
   cursor: pointer;
   text-decoration: none;
+  gap: 1rem;
+}
+
+.product-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
 }
 
 .product-item:hover {
@@ -34,10 +41,10 @@
 }
 
 .rating {
-  color: #555;
+  color: #ff9800;
 }
 
 .price {
   font-weight: bold;
-  color: #333;
+  color: #4caf50;
 }
