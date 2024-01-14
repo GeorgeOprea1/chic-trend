@@ -1,2 +1,45 @@
 .individual-item-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.individual-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.individual-img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.individual-description {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.individual-price {
+  font-size: 18px;
+  color: #4caf50;
+  margin-bottom: 10px;
+}
+
+.individual-rating {
+  font-size: 16px;
+  color: #ff9800;
+  margin-bottom: 20px;
 }
