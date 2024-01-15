@@ -11,10 +11,17 @@ import IndividualItemPage from "./pages/IndividualItemPage";
 const App = () => {
   const [items, setItems] = useState([]);
   const [quantity, setQuantity] = useState(0);
+  const [cartItems, setCartItems] = useState([]);
+
+  const handleAddToCart = (selectedItem, selectedQuantity) => {
+    const newItem = { ...selectedItem, quantity: selectedQuantity };
+    setCartItems([...cartItems, newItem]);
+  };
 
   function increaseQuantity() {
     setQuantity(quantity + 1);
   }
+
   function decreaseQuantity() {
     if (quantity > 1) {
       setQuantity(quantity - 1);
@@ -39,7 +46,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home items={items} />} />
         <Route path="shop" element={<Shop items={items} />} />
-        <Route path="cart" element={<Cart />} />
+        <Route path="cart" element={<Cart cartItems={cartItems} />} />
         <Route
           path="individual/:id"
           element={
@@ -48,6 +55,7 @@ const App = () => {
               quantity={quantity}
               increaseQuantity={increaseQuantity}
               decreaseQuantity={decreaseQuantity}
+              handleAddToCart={handleAddToCart}
             />
           }
         />

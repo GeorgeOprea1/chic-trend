@@ -88,6 +88,12 @@
   transition: background-color 0.3s ease-in-out;
 }
 
+.add-cart-btn:active {
+  background-color: #0e75a7;
+  transform: translateY(4px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
 .add-cart-btn:hover {
   background-color: #1565c0;
 }

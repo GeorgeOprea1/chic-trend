@@ -8,6 +8,7 @@ const IndividualItem = ({
   quantity,
   increaseQuantity,
   decreaseQuantity,
+  handleAddToCart,
 }) => {
   const { id } = useParams();
 
@@ -57,7 +58,12 @@ const IndividualItem = ({
                 <FaCirclePlus className="quantity-icon" />
               </button>
             </div>
-            <button className="add-cart-btn">Add to cart</button>
+            <button
+              className="add-cart-btn"
+              onClick={() => handleAddToCart(selectedItem, quantity)}
+            >
+              Add to cart
+            </button>
           </div>
         </div>
       ) : (
