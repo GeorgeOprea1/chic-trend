@@ -117,3 +117,8 @@ img {
   height: 60px;
   color: red;
 }
+
+.empty-text {
+  text-align: center;
+  font-size: 25px;
+}

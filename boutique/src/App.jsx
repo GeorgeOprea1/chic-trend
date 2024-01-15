@@ -28,6 +28,22 @@ const App = () => {
     }
   }
 
+  const handleQuantityChange = (itemId, action) => {
+    setCartItems((prevItems) =>
+      prevItems.map((item) =>
+        item.id === itemId
+          ? {
+              ...item,
+              quantity:
+                action === "increase"
+                  ? item.quantity + 1
+                  : Math.max(0, item.quantity - 1),
+            }
+          : item
+      )
+    );
+  };
+
   useEffect(() => {
     fetch("https://fakestoreapi.com/products/category/men's clothing")
       .then((res) => res.json())
@@ -46,7 +62,15 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home items={items} />} />
         <Route path="shop" element={<Shop items={items} />} />
-        <Route path="cart" element={<Cart cartItems={cartItems} />} />
+        <Route
+          path="cart"
+          element={
+            <Cart
+              cartItems={cartItems}
+              handleQuantityChange={handleQuantityChange}
+            />
+          }
+        />
         <Route
           path="individual/:id"
           element={

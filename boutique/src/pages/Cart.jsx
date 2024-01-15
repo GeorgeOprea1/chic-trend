@@ -3,11 +3,11 @@ import { FaCircleMinus } from "react-icons/fa6";
 import { FaCirclePlus } from "react-icons/fa6";
 import { FaRegTrashCan } from "react-icons/fa6";
 
-const Cart = ({ cartItems }) => {
+const Cart = ({ cartItems, handleQuantityChange }) => {
   return (
     <div className="cart-container">
       {cartItems.length === 0 ? (
-        <p>Your cart is empty</p>
+        <p className="empty-text">Your cart is empty</p>
       ) : (
         <>
           <h2 className="cart-title">Your Cart</h2>
@@ -29,8 +29,11 @@ const Cart = ({ cartItems }) => {
                     <div className="increase-decrease-container">
                       <button
                         aria-label="decrease quantity"
-                        disabled=""
                         id="minus"
+                        onClick={() =>
+                          handleQuantityChange(item.id, "decrease")
+                        }
+                        disabled={item.quantity === 0}
                       >
                         <FaCircleMinus className="cart-quantity-icon" />
                       </button>
@@ -40,7 +43,13 @@ const Cart = ({ cartItems }) => {
                         value={item.quantity}
                         className="cart-quantity-input"
                       />
-                      <button aria-label="increase quantity" id="plus">
+                      <button
+                        aria-label="increase quantity"
+                        id="plus"
+                        onClick={() =>
+                          handleQuantityChange(item.id, "increase")
+                        }
+                      >
                         <FaCirclePlus className="cart-quantity-icon" />
                       </button>
                     </div>
