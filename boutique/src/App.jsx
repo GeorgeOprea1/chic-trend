@@ -13,11 +13,6 @@ const App = () => {
   const [quantity, setQuantity] = useState(0);
   const [cartItems, setCartItems] = useState([]);
 
-  const handleAddToCart = (selectedItem, selectedQuantity) => {
-    const newItem = { ...selectedItem, quantity: selectedQuantity };
-    setCartItems([...cartItems, newItem]);
-  };
-
   function increaseQuantity() {
     setQuantity(quantity + 1);
   }
@@ -27,6 +22,23 @@ const App = () => {
       setQuantity(quantity - 1);
     }
   }
+
+  const handleAddToCart = (selectedItem, selectedQuantity) => {
+    const existingItem = cartItems.find((item) => item.id === selectedItem.id);
+
+    if (existingItem) {
+      setCartItems((prevItems) =>
+        prevItems.map((item) =>
+          item.id === selectedItem.id
+            ? { ...item, quantity: item.quantity + selectedQuantity }
+            : item
+        )
+      );
+    } else {
+      const newItem = { ...selectedItem, quantity: selectedQuantity };
+      setCartItems([...cartItems, newItem]);
+    }
+  };
 
   const handleQuantityChange = (itemId, action) => {
     setCartItems((prevItems) =>
@@ -46,6 +58,17 @@ const App = () => {
 
   const handleRemoveItem = (itemId) => {
     setCartItems((prevItems) => prevItems.filter((item) => item.id !== itemId));
+  };
+
+  const calculateTotal = () => {
+    let total = 0;
+
+    for (const item of cartItems) {
+      const itemTotal = item.quantity * item.price;
+      total += itemTotal;
+    }
+
+    return total;
   };
 
   useEffect(() => {
@@ -73,6 +96,7 @@ const App = () => {
               cartItems={cartItems}
               handleQuantityChange={handleQuantityChange}
               onRemoveItem={handleRemoveItem}
+              calculateTotal={calculateTotal}
             />
           }
         />

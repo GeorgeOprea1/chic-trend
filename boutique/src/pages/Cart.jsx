@@ -3,7 +3,12 @@ import { FaCircleMinus } from "react-icons/fa6";
 import { FaCirclePlus } from "react-icons/fa6";
 import { FaRegTrashCan } from "react-icons/fa6";
 
-const Cart = ({ cartItems, handleQuantityChange, onRemoveItem }) => {
+const Cart = ({
+  cartItems,
+  handleQuantityChange,
+  onRemoveItem,
+  calculateTotal,
+}) => {
   return (
     <div className="cart-container">
       {cartItems.length === 0 ? (
@@ -42,6 +47,7 @@ const Cart = ({ cartItems, handleQuantityChange, onRemoveItem }) => {
                         type="number"
                         value={item.quantity}
                         className="cart-quantity-input"
+                        readOnly
                       />
                       <button
                         aria-label="increase quantity"
@@ -65,7 +71,7 @@ const Cart = ({ cartItems, handleQuantityChange, onRemoveItem }) => {
               </li>
             ))}
           </ul>
-          <div className="cart-total">Total</div>
+          <div className="cart-total">Total: ${calculateTotal()}</div>
         </>
       )}
     </div>

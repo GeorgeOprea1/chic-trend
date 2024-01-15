@@ -50,6 +50,7 @@ const IndividualItem = ({
                 type="number"
                 value={quantity}
                 className="quantity-input"
+                readOnly
               />
               <button
                 aria-label="increase quantity"
