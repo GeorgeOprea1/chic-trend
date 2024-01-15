@@ -56,7 +56,32 @@ nav {
 .nav-links a:hover {
   color: #ff6f61;
 }
+.nav-home,
+.nav-shop {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+}
 
 .cart-icon {
-  font-size: 1.5rem;
+  font-size: 2rem;
+}
+
+.nav-cart {
+  position: relative;
+  display: flex;
+  justify-content: start;
+  padding: 12px;
+}
+
+.nav-cart-quantity {
+  width: 50%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: red;
+  border-radius: 50%;
+  text-align: center;
+  padding: 5px;
+  color: #fff;
 }

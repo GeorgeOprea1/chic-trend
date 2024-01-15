@@ -85,7 +85,7 @@ const App = () => {
 
   return (
     <div className="app-container">
-      <Navbar />
+      <Navbar cartItems={cartItems} />
       <Routes>
         <Route path="/" element={<Home items={items} />} />
         <Route path="shop" element={<Shop items={items} />} />
