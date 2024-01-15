@@ -3,7 +3,12 @@ import "../styles/IndividualItemPage.css";
 import { FaCircleMinus } from "react-icons/fa6";
 import { FaCirclePlus } from "react-icons/fa6";
 
-const IndividualItem = ({ items }) => {
+const IndividualItem = ({
+  items,
+  quantity,
+  increaseQuantity,
+  decreaseQuantity,
+}) => {
   const { id } = useParams();
 
   const selectedItem = items.find((item) => item.id.toString() === id);
@@ -30,16 +35,25 @@ const IndividualItem = ({ items }) => {
           </div>
           <div className="add-container">
             <div className="quantity-container">
-              <button aria-label="decrease quantity" disabled="" id="minus">
+              <button
+                aria-label="decrease quantity"
+                disabled=""
+                id="minus"
+                onClick={decreaseQuantity}
+              >
                 <FaCircleMinus className="quantity-icon" />
               </button>
               <input
                 aria-label="item quantity"
                 type="number"
-                value="1"
+                value={quantity}
                 className="quantity-input"
               />
-              <button aria-label="increase quantity" id="plus">
+              <button
+                aria-label="increase quantity"
+                id="plus"
+                onClick={increaseQuantity}
+              >
                 <FaCirclePlus className="quantity-icon" />
               </button>
             </div>

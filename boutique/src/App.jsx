@@ -10,6 +10,16 @@ import IndividualItemPage from "./pages/IndividualItemPage";
 
 const App = () => {
   const [items, setItems] = useState([]);
+  const [quantity, setQuantity] = useState(0);
+
+  function increaseQuantity() {
+    setQuantity(quantity + 1);
+  }
+  function decreaseQuantity() {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
+  }
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products/category/men's clothing")
@@ -32,7 +42,14 @@ const App = () => {
         <Route path="cart" element={<Cart />} />
         <Route
           path="individual/:id"
-          element={<IndividualItemPage items={items} />}
+          element={
+            <IndividualItemPage
+              items={items}
+              quantity={quantity}
+              increaseQuantity={increaseQuantity}
+              decreaseQuantity={decreaseQuantity}
+            />
+          }
         />
       </Routes>
       <Footer />
