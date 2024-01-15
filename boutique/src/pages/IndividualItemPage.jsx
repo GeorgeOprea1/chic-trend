@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import "../styles/IndividualItemPage.css";
 import { FaCircleMinus } from "react-icons/fa6";
 import { FaCirclePlus } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 const IndividualItem = ({
   items,
@@ -58,12 +59,13 @@ const IndividualItem = ({
                 <FaCirclePlus className="quantity-icon" />
               </button>
             </div>
-            <button
+            <Link
+              to="/cart"
               className="add-cart-btn"
               onClick={() => handleAddToCart(selectedItem, quantity)}
             >
               Add to cart
-            </button>
+            </Link>
           </div>
         </div>
       ) : (

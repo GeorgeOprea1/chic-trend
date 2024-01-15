@@ -44,6 +44,10 @@ const App = () => {
     );
   };
 
+  const handleRemoveItem = (itemId) => {
+    setCartItems((prevItems) => prevItems.filter((item) => item.id !== itemId));
+  };
+
   useEffect(() => {
     fetch("https://fakestoreapi.com/products/category/men's clothing")
       .then((res) => res.json())
@@ -68,6 +72,7 @@ const App = () => {
             <Cart
               cartItems={cartItems}
               handleQuantityChange={handleQuantityChange}
+              onRemoveItem={handleRemoveItem}
             />
           }
         />

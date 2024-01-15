@@ -3,7 +3,7 @@ import { FaCircleMinus } from "react-icons/fa6";
 import { FaCirclePlus } from "react-icons/fa6";
 import { FaRegTrashCan } from "react-icons/fa6";
 
-const Cart = ({ cartItems, handleQuantityChange }) => {
+const Cart = ({ cartItems, handleQuantityChange, onRemoveItem }) => {
   return (
     <div className="cart-container">
       {cartItems.length === 0 ? (
@@ -53,7 +53,11 @@ const Cart = ({ cartItems, handleQuantityChange }) => {
                         <FaCirclePlus className="cart-quantity-icon" />
                       </button>
                     </div>
-                    <button aria-label="delete quantity" id="delete">
+                    <button
+                      aria-label="delete quantity"
+                      id="delete"
+                      onClick={() => onRemoveItem(item.id)}
+                    >
                       <FaRegTrashCan className="delete-icon" />
                     </button>
                   </div>
