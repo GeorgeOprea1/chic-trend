@@ -6,7 +6,6 @@
   transition: transform 0.3s ease-in-out;
   display: flex;
   width: 70%;
-
   align-items: center;
   text-align: center;
   gap: 2rem;
@@ -24,15 +23,14 @@
 }
 
 .individual-img {
-  width: 100%;
-  max-width: 400px;
-  height: auto;
+  width: 300px;
+  height: 350px;
   border-radius: 8px;
   margin-bottom: 15px;
 }
 
 .individual-description {
-  font-size: 1rem;
+  font-size: calc(10px + 1vw);
   margin-bottom: 15px;
 }
 
@@ -61,7 +59,7 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  width: 50%;
+  width: 60%;
 }
 
 .quantity-input {
@@ -77,9 +75,9 @@
 
 .add-cart-btn {
   background-color: #2196f3;
-  width: 30%;
+  width: 50%;
   font-weight: 600;
-  font-size: 1.2rem;
+  font-size: calc(10px + 1vw);
   color: #fff;
   padding: 20px 20px;
   border: none;
@@ -121,4 +119,37 @@
 
 .quantity-icon:active {
   transform: scale(0.9);
+}
+
+@media all and (max-width: 1000px) {
+  .individual-item-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .quantity-container {
+    width: 90%;
+  }
+  .add-container {
+    width: 100%;
+  }
+  .individual-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+
+  .individual-description {
+  }
 }

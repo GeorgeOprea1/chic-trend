@@ -8,18 +8,19 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   text-align: center;
-  height: 30vh;
+  margin-top: 5rem;
+  padding-bottom: 5rem;
 }
 
 .hero-header {
   width: 60%;
-  font-size: 3rem;
+  font-size: calc(1.2rem + 1vw);
   font-weight: bold;
   color: #333;
 }
 
 .hero-para {
-  font-size: 1.5rem;
+  font-size: calc(0.5rem + 1vw);
   color: #666;
   width: 60%;
 }

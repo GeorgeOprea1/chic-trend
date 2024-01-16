@@ -1,21 +1,14 @@
-.shop-cotainer {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  gap: 4rem;
-  align-items: center;
-}
-
 .shop-items-container {
-  height: 80%;
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
 
-.shop-items-container > * {
-  flex: 1;
-  height: 60%;
+@media all and (max-width: 1000px) {
+  .shop-items-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }

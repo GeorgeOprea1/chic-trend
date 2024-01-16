@@ -16,7 +16,7 @@ const Cart = ({
       ) : (
         <>
           <h2 className="cart-title">Your Cart</h2>
-          <div className="individual-item-cart-container">
+          <div className="titles-cart-container">
             <p>Item</p>
             <p>Price</p>
             <p>Quantity</p>

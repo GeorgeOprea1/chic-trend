@@ -27,7 +27,6 @@
 .github-container {
   width: 20%;
   height: 50%;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -44,4 +43,10 @@
 .icon:hover {
   transform: rotate(360deg) scale(1.2);
   transition: transform 0.3s ease-in-out;
+}
+
+@media all and (max-width: 1000px) {
+  .footer-container {
+    display: none;
+  }
 }
