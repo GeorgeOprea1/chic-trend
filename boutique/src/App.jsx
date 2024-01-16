@@ -10,7 +10,7 @@ import IndividualItemPage from "./pages/IndividualItemPage";
 
 const App = () => {
   const [items, setItems] = useState([]);
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
   const [cartItems, setCartItems] = useState([]);
 
   function increaseQuantity() {
@@ -71,6 +71,11 @@ const App = () => {
     return total;
   };
 
+  const handleQuantityChangeInput = (newQuantity) => {
+    newQuantity = Math.max(1, parseInt(newQuantity, 10) || 1);
+    setQuantity(newQuantity);
+  };
+
   useEffect(() => {
     fetch("https://fakestoreapi.com/products/category/men's clothing")
       .then((res) => res.json())
@@ -109,6 +114,7 @@ const App = () => {
               increaseQuantity={increaseQuantity}
               decreaseQuantity={decreaseQuantity}
               handleAddToCart={handleAddToCart}
+              handleQuantityChangeInput={handleQuantityChangeInput}
             />
           }
         />

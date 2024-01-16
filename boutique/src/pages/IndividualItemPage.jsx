@@ -10,6 +10,7 @@ const IndividualItem = ({
   increaseQuantity,
   decreaseQuantity,
   handleAddToCart,
+  handleQuantityChangeInput,
 }) => {
   const { id } = useParams();
 
@@ -50,6 +51,7 @@ const IndividualItem = ({
                 type="number"
                 value={quantity}
                 className="quantity-input"
+                onChange={handleQuantityChangeInput}
               />
               <button
                 aria-label="increase quantity"
