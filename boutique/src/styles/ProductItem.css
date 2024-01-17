@@ -1,6 +1,6 @@
 .product-item {
   width: 30%;
-  height: 500px;
+  height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: start;
