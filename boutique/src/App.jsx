@@ -15,7 +15,7 @@ const App = () => {
   const [items, setItems] = useState([]);
   const [quantity, setQuantity] = useState(1);
   const [cartItems, setCartItems] = useState([]);
-  const [darkTheme, setDarkTheme] = useState(true);
+  const [darkTheme, setDarkTheme] = useState(false);
 
   function toggleTheme() {
     setDarkTheme((prevDarkTheme) => {
