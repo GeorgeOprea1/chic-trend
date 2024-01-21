@@ -7,11 +7,28 @@ import Home from "./pages/Home";
 import { Routes, Route } from "react-router-dom";
 import Cart from "./pages/Cart";
 import IndividualItemPage from "./pages/IndividualItemPage";
+import { createContext } from "react";
+
+export const ThemeContext = createContext();
 
 const App = () => {
   const [items, setItems] = useState([]);
   const [quantity, setQuantity] = useState(1);
   const [cartItems, setCartItems] = useState([]);
+  const [darkTheme, setDarkTheme] = useState(true);
+
+  function toggleTheme() {
+    setDarkTheme((prevDarkTheme) => {
+      const newDarkTheme = !prevDarkTheme;
+      document.body.style.backgroundColor = newDarkTheme ? "#333" : "#fff";
+      document.body.style.color = newDarkTheme ? "#fff" : "#333";
+      return newDarkTheme;
+    });
+  }
+  const themeStyles = {
+    backgroundColor: darkTheme ? "#333" : "#fff",
+    color: darkTheme ? "#fff" : "#333",
+  };
 
   function increaseQuantity() {
     setQuantity(quantity + 1);
@@ -89,7 +106,11 @@ const App = () => {
   }, []);
 
   return (
-    <div className="app-container">
+    <ThemeContext.Provider
+      value={{ darkTheme, toggleTheme, themeStyles }}
+      className="app-container"
+      style={themeStyles}
+    >
       <Navbar cartItems={cartItems} />
       <Routes>
         <Route path="/" element={<Home items={items} />} />
@@ -120,7 +141,7 @@ const App = () => {
         />
       </Routes>
       <Footer />
-    </div>
+    </ThemeContext.Provider>
   );
 };
 

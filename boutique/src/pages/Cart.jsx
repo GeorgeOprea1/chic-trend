@@ -27,7 +27,7 @@ const Cart = ({
                 <div className="individual-item-cart-container">
                   <div className="img-cart-container">
                     <img src={item.image} alt={item.title} />
-                    {item.title}
+                    <div>{item.title}</div>
                   </div>
                   <div>${item.price}</div>
                   <div className="cart-btns-container">

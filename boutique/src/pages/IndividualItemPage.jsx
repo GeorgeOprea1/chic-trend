@@ -3,6 +3,8 @@ import "../styles/IndividualItemPage.css";
 import { FaCircleMinus } from "react-icons/fa6";
 import { FaCirclePlus } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { ThemeContext } from "../App";
 
 const IndividualItem = ({
   items,
@@ -16,12 +18,21 @@ const IndividualItem = ({
 
   const selectedItem = items.find((item) => item.id.toString() === id);
 
+  const { backgroundColor, color } = useContext(ThemeContext).themeStyles;
+
+  const individualStyles = {
+    backgroundColor,
+    color,
+  };
+
   return (
     <>
       {selectedItem ? (
-        <div className="individual-item-container">
+        <div className="individual-item-container" style={individualStyles}>
           <div>
-            <h2 className="individual-title">{selectedItem.title}</h2>
+            <h2 className="individual-title" style={individualStyles}>
+              {selectedItem.title}
+            </h2>
             <img
               src={selectedItem.image}
               alt={selectedItem.title}
@@ -44,7 +55,10 @@ const IndividualItem = ({
                 id="minus"
                 onClick={decreaseQuantity}
               >
-                <FaCircleMinus className="quantity-icon" />
+                <FaCircleMinus
+                  className="quantity-icon"
+                  style={individualStyles}
+                />
               </button>
               <input
                 aria-label="item quantity"
@@ -58,7 +72,10 @@ const IndividualItem = ({
                 id="plus"
                 onClick={increaseQuantity}
               >
-                <FaCirclePlus className="quantity-icon" />
+                <FaCirclePlus
+                  className="quantity-icon"
+                  style={individualStyles}
+                />
               </button>
             </div>
             <Link
