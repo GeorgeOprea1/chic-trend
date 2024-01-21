@@ -1,7 +1,8 @@
 
 #[Chic-Trend](https://chic-trend.netlify.app)
 
-![App-UI](![Chic-trend-UI](https://github.com/GeorgeOprea1/chic-trend/assets/127131773/35e6d741-b4c9-46ab-a35f-0a1c1e6d48d8)
+
+![Chic-trend-UI](https://github.com/GeorgeOprea1/chic-trend/assets/127131773/ecc130a7-8f06-498e-aed6-812d5a132e24)
 
 
 
@@ -12,6 +13,7 @@
 - Cart Functionality: Add items to your cart, adjust quantities, delete items.
 - Deployed the app using NETLIFY
 - Implemented increment and decrement buttons for fine-tuning.
+- Toggle between dark and light mode by pressing the icon in the navbar
 - Responsive design optimized for all screen sizes.
 
 
