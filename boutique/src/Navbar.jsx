@@ -33,8 +33,11 @@ const Navbar = ({ cartItems }) => {
           </Link>{" "}
           <button
             onClick={toggleTheme}
-            className="toggle-btn"
+            id="toggle-btn"
             style={themeStyles}
+            aria-label={
+              darkTheme ? "Switch to Light Theme" : "Switch to Dark Theme"
+            }
           >
             {darkTheme ? <FiSun /> : <FaRegMoon />}
           </button>

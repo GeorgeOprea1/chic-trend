@@ -21,6 +21,7 @@ export default function Footer() {
           href="https://github.com/GeorgeOprea1/chic-trend"
           target="_blank"
           rel="noreferrer"
+          aria-label="Visit the GitHub repository for Chic Trend project"
         >
           <AiFillGithub className="icon" />
         </a>
