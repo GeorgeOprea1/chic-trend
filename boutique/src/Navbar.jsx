@@ -6,6 +6,7 @@ import { FaRegMoon } from "react-icons/fa";
 import "./styles/Navbar.css";
 import { ThemeContext } from "./App";
 import SideMenu from "./SideMenu";
+import { FaSearch } from "react-icons/fa";
 
 const Navbar = ({ cartItems }) => {
   const totalQuantity = cartItems.reduce(
@@ -44,7 +45,10 @@ const Navbar = ({ cartItems }) => {
         </Link>
 
         <div className="search-input">
-          <input type="text" placeholder="Search..." />
+          <input type="text" placeholder="Search..." className="input" />
+          <button id="search-btn">
+            <FaSearch />
+          </button>
         </div>
 
         {isWideScreen ? (
