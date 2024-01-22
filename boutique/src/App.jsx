@@ -16,6 +16,19 @@ const App = () => {
   const [quantity, setQuantity] = useState(1);
   const [cartItems, setCartItems] = useState([]);
   const [darkTheme, setDarkTheme] = useState(false);
+  const [searchResult, setSearchResult] = useState(null);
+
+  const handleSearch = (searchInput) => {
+    const matchingItem = items.find((item) =>
+      item.title.toLowerCase().includes(searchInput.toLowerCase())
+    );
+
+    if (matchingItem) {
+      setSearchResult(matchingItem);
+    } else {
+      setSearchResult(null);
+    }
+  };
 
   function toggleTheme() {
     setDarkTheme((prevDarkTheme) => {
@@ -111,7 +124,7 @@ const App = () => {
       className="app-container"
       style={themeStyles}
     >
-      <Navbar cartItems={cartItems} />
+      <Navbar cartItems={cartItems} onSearch={handleSearch} items={items} />
       <Routes>
         <Route path="/" element={<Home items={items} />} />
         <Route path="shop" element={<Shop items={items} />} />

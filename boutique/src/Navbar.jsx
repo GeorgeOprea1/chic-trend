@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { IoCartOutline, IoMenu } from "react-icons/io5";
 import { FiSun } from "react-icons/fi";
@@ -7,8 +7,26 @@ import "./styles/Navbar.css";
 import { ThemeContext } from "./App";
 import SideMenu from "./SideMenu";
 import { FaSearch } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
-const Navbar = ({ cartItems }) => {
+const Navbar = ({ cartItems, onSearch, items }) => {
+  const [searchInput, setSearchInput] = useState("");
+  const navigate = useNavigate();
+
+  const handleSearch = () => {
+    onSearch(searchInput);
+
+    const matchingItem = items.find((item) =>
+      item.title.toLowerCase().includes(searchInput.toLowerCase())
+    );
+
+    if (matchingItem) {
+      navigate(`/individual/${matchingItem.id}`);
+    } else {
+      alert("No such item found");
+    }
+  };
+
   const totalQuantity = cartItems.reduce(
     (total, item) => total + item.quantity,
     0
@@ -45,8 +63,13 @@ const Navbar = ({ cartItems }) => {
         </Link>
 
         <div className="search-input">
-          <input type="text" placeholder="Search..." className="input" />
-          <button id="search-btn">
+          <input
+            type="text"
+            placeholder="Search..."
+            className="input"
+            onChange={(e) => setSearchInput(e.target.value)}
+          />
+          <button id="search-btn" onClick={handleSearch}>
             <FaSearch />
           </button>
         </div>

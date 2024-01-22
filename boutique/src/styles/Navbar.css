@@ -41,7 +41,7 @@ nav {
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 8px;
-  font-size: 10px;
+  font-size: 12px;
   margin-right: 5px;
   flex-grow: 1;
   outline: none;
@@ -55,7 +55,7 @@ nav {
   border-radius: 8px;
   padding: 10px 15px;
   cursor: pointer;
-  font-size: 10px;
+  font-size: 12px;
   outline: none;
   transition: background-color 0.3s ease-in-out;
 }
