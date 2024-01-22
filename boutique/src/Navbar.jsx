@@ -1,10 +1,11 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { IoCartOutline, IoMenu } from "react-icons/io5";
-import "./styles/Navbar.css";
-import { ThemeContext } from "./App";
 import { FiSun } from "react-icons/fi";
 import { FaRegMoon } from "react-icons/fa";
+import "./styles/Navbar.css";
+import { ThemeContext } from "./App";
+import SideMenu from "./SideMenu";
 
 const Navbar = ({ cartItems }) => {
   const totalQuantity = cartItems.reduce(
@@ -17,6 +18,10 @@ const Navbar = ({ cartItems }) => {
 
   const toggleMenu = () => {
     setMenuVisible(!menuVisible);
+  };
+
+  const closeMenu = () => {
+    setMenuVisible(false);
   };
 
   useEffect(() => {
@@ -66,9 +71,20 @@ const Navbar = ({ cartItems }) => {
             </Link>
           </div>
         ) : (
-          <div className="menu-toggle" onClick={toggleMenu}>
-            <IoMenu className="menu-icon" />
-          </div>
+          <>
+            <div className="menu-toggle" onClick={toggleMenu}>
+              <IoMenu className="menu-icon" />
+            </div>
+            {menuVisible && (
+              <SideMenu
+                onClose={closeMenu}
+                darkTheme={darkTheme}
+                toggleTheme={toggleTheme}
+                totalQuantity={totalQuantity}
+                themeStyles={themeStyles}
+              />
+            )}
+          </>
         )}
       </div>
     </nav>
