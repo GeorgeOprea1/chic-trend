@@ -67,6 +67,15 @@ nav {
   font-size: calc(1rem + 1vw);
 }
 
+.menu-icon {
+  font-size: calc(1.5rem + 1vw);
+  cursor: pointer;
+}
+
+.menu-icon:active {
+  transform: scale(0.8);
+}
+
 .nav-cart {
   position: relative;
   display: flex;
