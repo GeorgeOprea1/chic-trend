@@ -69,7 +69,11 @@ const Navbar = ({ cartItems, onSearch, items }) => {
             className="input"
             onChange={(e) => setSearchInput(e.target.value)}
           />
-          <button id="search-btn" onClick={handleSearch}>
+          <button
+            id="search-btn"
+            aria-label="Search the item"
+            onClick={handleSearch}
+          >
             <FaSearch />
           </button>
         </div>

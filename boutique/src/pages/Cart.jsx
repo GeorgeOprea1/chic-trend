@@ -73,7 +73,9 @@ const Cart = ({
           </ul>
           <div className="cart-total">Total: ${calculateTotal()}</div>
           <div className="checkout-container">
-            <button id="checkout">Checkout</button>
+            <button id="checkout" aria-label="Checkout">
+              Checkout
+            </button>
           </div>
         </>
       )}
