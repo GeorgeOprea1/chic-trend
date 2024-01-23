@@ -11,9 +11,10 @@
 ## Features
 - Fetch shop items from the FakeStore API or similar source.
 - Cart Functionality: Add items to your cart, adjust quantities, delete items.
-- Deployed the app using NETLIFY
+- Deployed the app using NETLIFY.
 - Implemented increment and decrement buttons for fine-tuning.
-- Toggle between dark and light mode by pressing the icon in the navbar
+- Toggle between dark and light mode by pressing the icon in the navbar.
+- Implemented name-based search functionality.
 - Responsive design optimized for all screen sizes.
 
 
