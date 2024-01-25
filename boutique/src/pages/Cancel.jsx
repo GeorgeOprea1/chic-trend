@@ -6,8 +6,8 @@ const CancelPage = () => {
   return (
     <div className="cancel-container">
       <h2>Payment Canceled</h2>
-      <p>
-        Your payment was canceled. You can go back to the cart{" "}
+      <p className="cancel-para">
+        Your payment was canceled. You can go back to the cart by clicking
         <Link to="/" className="back-to-cart-link">
           here
         </Link>
