@@ -9,6 +9,45 @@ const Cart = ({
   onRemoveItem,
   calculateTotal,
 }) => {
+  function checkout() {
+    const currentCartItems = cartItems.map((item) => ({
+      id: item.id,
+      quantity: item.quantity,
+      stripePriceId: getStripePriceId(item.id),
+    }));
+
+    fetch("https://backend-chic-trend.onrender.com/checkout", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ items: currentCartItems }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        window.location.href = data.url;
+      })
+      .catch((error) => {
+        console.error("Error during checkout:", error);
+      });
+  }
+
+  const getStripePriceId = (itemId) => {
+    switch (itemId) {
+      case 1:
+        return "price_1OcTceDnlYS1GOoDeXTtvGdj";
+      case 2:
+        return "price_1OcTfEDnlYS1GOoDyNkJL7Ef";
+
+      case 3:
+        return "price_1OcTgaDnlYS1GOoDjH69lXLj";
+      case 4:
+        return "price_1OcThlDnlYS1GOoDB739oemx";
+      default:
+        return null;
+    }
+  };
+
   return (
     <div className="cart-container">
       {cartItems.length === 0 ? (
@@ -73,7 +112,7 @@ const Cart = ({
           </ul>
           <div className="cart-total">Total: ${calculateTotal()}</div>
           <div className="checkout-container">
-            <button id="checkout" aria-label="Checkout">
+            <button id="checkout" aria-label="Checkout" onClick={checkout}>
               Checkout
             </button>
           </div>
