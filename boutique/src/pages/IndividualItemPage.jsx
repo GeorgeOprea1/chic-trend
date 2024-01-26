@@ -78,13 +78,13 @@ const IndividualItem = ({
                 />
               </button>
             </div>
-            <Link
+            <button
               to="/cart"
               className="add-cart-btn"
               onClick={() => handleAddToCart(selectedItem, quantity)}
             >
               Add to cart
-            </Link>
+            </button>
           </div>
         </div>
       ) : (
