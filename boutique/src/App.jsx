@@ -8,8 +8,6 @@ import { Routes, Route } from "react-router-dom";
 import Cart from "./pages/Cart";
 import IndividualItemPage from "./pages/IndividualItemPage";
 import { createContext } from "react";
-import SuccessPage from "./pages/Success";
-import CancelPage from "./pages/Cancel";
 
 export const ThemeContext = createContext();
 
@@ -130,8 +128,6 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home items={items} />} />
         <Route path="shop" element={<Shop items={items} />} />
-        <Route path="/success" element={<SuccessPage />} />
-        <Route path="/cancel" element={<CancelPage />} />
         <Route
           path="cart"
           element={
