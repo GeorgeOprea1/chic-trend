@@ -1,6 +1,8 @@
 import Navbar from "./Navbar";
 import Shop from "./pages/Shop";
 import Footer from "./Footer";
+import Success from "./pages/Success";
+import Cancel from "./pages/Cancel";
 import "./App.css";
 import { useState, useEffect } from "react";
 import Home from "./pages/Home";
@@ -128,6 +130,8 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home items={items} />} />
         <Route path="shop" element={<Shop items={items} />} />
+        <Route path="success" element={<Success />} />
+        <Route path="cancel" element={<Cancel />} />
         <Route
           path="cart"
           element={
