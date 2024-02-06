@@ -25,7 +25,14 @@ const Cart = ({
     })
       .then((response) => response.json())
       .then((data) => {
-        window.location.href = data.url;
+        const successUrl = "/success";
+        const cancelUrl = "/cancel";
+
+        if (data.success) {
+          window.location.href = successUrl;
+        } else {
+          window.location.href = cancelUrl;
+        }
       })
       .catch((error) => {
         console.error("Error during checkout:", error);
