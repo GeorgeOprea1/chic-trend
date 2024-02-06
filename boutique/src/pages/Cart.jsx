@@ -25,17 +25,12 @@ const Cart = ({
     })
       .then((response) => response.json())
       .then((data) => {
-        const successUrl = "/success";
-        const cancelUrl = "/cancel";
-
-        if (data.success) {
-          window.location.href = successUrl;
-        } else {
-          window.location.href = cancelUrl;
-        }
+        const stripeCheckoutUrl = data.url;
+        window.location.href = stripeCheckoutUrl;
       })
       .catch((error) => {
         console.error("Error during checkout:", error);
+        window.location.href = "/cancel";
       });
   }
 
