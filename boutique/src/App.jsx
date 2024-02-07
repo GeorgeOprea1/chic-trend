@@ -129,11 +129,11 @@ const App = () => {
       <Navbar cartItems={cartItems} onSearch={handleSearch} items={items} />
       <Routes>
         <Route path="/" element={<Home items={items} />} />
-        <Route path="shop" element={<Shop items={items} />} />
-        <Route path="success" element={<Success />} />
-        <Route path="cancel" element={<Cancel />} />
+        <Route path="/shop" element={<Shop items={items} />} />
+        <Route path="/success" element={<Success />} />
+        <Route path="/cancel" element={<Cancel />} />
         <Route
-          path="cart"
+          path="/cart"
           element={
             <Cart
               cartItems={cartItems}
@@ -144,7 +144,7 @@ const App = () => {
           }
         />
         <Route
-          path="individual/:id"
+          path="/individual/:id"
           element={
             <IndividualItemPage
               items={items}
