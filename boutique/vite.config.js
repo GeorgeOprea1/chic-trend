@@ -6,10 +6,9 @@ export default defineConfig({
   server: {
     port: 3000,
     proxy: {
-      "/checkout/*": {
+      "/checkout": {
         target: "https://backend-chic-trend.onrender.com",
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/checkout/, ""),
       },
     },
   },
