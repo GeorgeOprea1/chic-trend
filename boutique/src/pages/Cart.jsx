@@ -30,7 +30,6 @@ const Cart = ({
       })
       .catch((error) => {
         console.error("Error during checkout:", error);
-        window.location.href = "/cancel";
       });
   }
 
