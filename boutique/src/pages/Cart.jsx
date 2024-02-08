@@ -16,7 +16,7 @@ const Cart = ({
       stripePriceId: getStripePriceId(item.id),
     }));
 
-    fetch("", {
+    fetch("https://backend-chic-trend.onrender.com/checkout", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
